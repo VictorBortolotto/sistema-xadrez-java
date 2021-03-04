@@ -37,7 +37,7 @@ public class PartidaXadrez {
     private void setupInicial(){
 
         tabuleiro.lugarPeca(new Torre(tabuleiro, CoresPecas.BRANCAS), new Posicao(2, 1));
-        tabuleiro.lugarPeca(new Rei(tabuleiro, CoresPecas.PRETAS), new Posicao(0, 4));
+        tabuleiro.lugarPeca(new Rei(tabuleiro, CoresPecas.PRETAS), new Posicao(0, 1));
         tabuleiro.lugarPeca(new Rei(tabuleiro, CoresPecas.BRANCAS), new Posicao(7, 4));
     }
 

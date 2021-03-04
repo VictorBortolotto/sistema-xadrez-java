@@ -33,16 +33,25 @@ public class Tabuleiro {
     }
 
     public Peca pecas(int linhas, int colunas){
+       
+        if(!posicaoExistente(linhas, colunas)){
 
-        
+            throw new TabuleiroExceptions("Posição não existe");
+
+        }
 
         return pecas[linhas] [colunas];
 
     }
 
     public Peca pecas(Posicao posicao){
+  
+        if(!posicaoExistente(posicao)){
 
-        
+            throw new TabuleiroExceptions("Posição não existe");
+
+        }
+
         return pecas[posicao.getLinhas()][posicao.getColunas()];
 
     }
@@ -60,9 +69,9 @@ public class Tabuleiro {
 
     }
 
-    private boolean posicaoExistente(int linhas, int colunas){
+    private boolean posicaoExistente(int linha, int coluna){
 
-       return linhas >= 0 && linhas < linhas && colunas > 0 && colunas < colunas;
+       return linha >= 0 && linha < linhas && coluna >= 0 && coluna < colunas;
 
     }
 
@@ -73,6 +82,12 @@ public class Tabuleiro {
     }
 
     public boolean existePeca(Posicao posicao){    
+
+        if(!posicaoExistente(posicao)){
+
+            throw new TabuleiroExceptions("Posição não existe.");
+
+        }
 
         return pecas(posicao) != null;
 
