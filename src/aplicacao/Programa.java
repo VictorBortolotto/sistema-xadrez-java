@@ -6,7 +6,7 @@ public class Programa{
 
     public static void main(String[] args) {
         
-        Posicao posicao = new Posicao(3, 5);
+       Tabuleiro teste = new Tabuleiro(8,8);
 
 
 
