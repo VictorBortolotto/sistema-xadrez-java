@@ -7,7 +7,7 @@ public class PecasXadrez extends Peca {
     
     private CoresPecas cores;
 
-    private PecasXadrez(Tabuleiro tabuleiro, CoresPecas cores){
+    public PecasXadrez(Tabuleiro tabuleiro, CoresPecas cores){
 
         super(tabuleiro);
         this.cores = cores;
