@@ -60,7 +60,7 @@ public class UI {
 
             for(int j = 0; j < pecas.length; j++){
 
-                mostrarPeca(pecas[i][j]);
+                mostrarPeca(pecas[i][j], false);
 
             }
 
@@ -72,11 +72,37 @@ public class UI {
 
     }
 
-    private static void mostrarPeca(PecasXadrez peca){
+    public static void mostrarTabuleiro(PecasXadrez[][] pecas, boolean[][] movimentosPossiveis){
+
+        for(int i = 0; i < pecas.length; i++){
+
+            System.out.print((8 - i) + " ");
+
+            for(int j = 0; j < pecas.length; j++){
+
+                mostrarPeca(pecas[i][j], movimentosPossiveis[i][j]);
+
+            }
+
+            System.out.println();
+
+        }
+
+        System.out.println("  a b c d e f g h");
+
+    }
+
+    private static void mostrarPeca(PecasXadrez peca, boolean background){
+
+        if(background){
+
+            System.out.print(ANSI_BLUE_BACKGROUND);
+
+        }
 
         if(peca == null){
 
-            System.out.print("-");
+            System.out.print("-" + ANSI_RESET);
 
         }else {
 
