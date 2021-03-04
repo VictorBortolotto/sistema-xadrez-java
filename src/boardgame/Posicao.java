@@ -24,13 +24,13 @@ public class Posicao {
 
     }
 
-    public int getRow(){
+    public int getLinhas(){
 
         return linhas;
 
     }
    
-    public void setRow(int linhas){
+    public void setLinhas(int linhas){
 
         this.linhas = linhas;
 
