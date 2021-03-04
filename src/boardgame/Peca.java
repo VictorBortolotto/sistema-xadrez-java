@@ -1,5 +1,7 @@
 package boardgame;
 
+import xadrez.PosicaoXadrez;
+
 public abstract class Peca {
     
     protected Posicao posicao;

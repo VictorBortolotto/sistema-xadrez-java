@@ -24,6 +24,13 @@ public class Posicao {
 
     }
 
+    public void setValues(int linha, int coluna){
+
+        this.linhas = linha;
+        this.colunas = coluna;
+
+    }
+
     public int getLinhas(){
 
         return linhas;
