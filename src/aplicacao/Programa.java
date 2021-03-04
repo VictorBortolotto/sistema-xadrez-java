@@ -17,6 +17,7 @@ public class Programa{
         PartidaXadrez partida = new PartidaXadrez();
         
         while(true){
+            
             try{
 
                 UI.limparTela();
