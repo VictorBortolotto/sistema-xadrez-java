@@ -1,11 +1,11 @@
-package aplicacao;
+package aplication;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import xadrez.CoresPecas;
-import xadrez.PecasXadrez;
-import xadrez.PosicaoXadrez;
+import chess.Color;
+import chess.ChessPiece;
+import chess.ChessPosition;
 
 public class UI {
     
@@ -28,21 +28,21 @@ public class UI {
 	public static final String ANSI_CYAN_BACKGROUND = "\u001B[46m";
 	public static final String ANSI_WHITE_BACKGROUND = "\u001B[47m";
 
-    public static void limparTela(){
+    public static void clearScreen(){
 
         System.out.print("\033[H\033[2J");
         System.out.flush();
 
     }
 
-    public static PosicaoXadrez lerPosicaoXadrez(Scanner sc){
+    public static ChessPosition readChessPosition(Scanner sc){
 
         try{
 
             String s = sc.nextLine();
-            char coluna = s.charAt(0);
-            int linha = Integer.parseInt(s.substring(1));
-            return new PosicaoXadrez(coluna, linha); 
+            char column = s.charAt(0);
+            int row = Integer.parseInt(s.substring(1));
+            return new ChessPosition(column, row); 
 
         }catch (RuntimeException e){
 
@@ -52,15 +52,15 @@ public class UI {
 
     }
 
-    public static void mostrarTabuleiro(PecasXadrez[][] pecas){
+    public static void printBoard(ChessPiece[][] pieces){
 
-        for(int i = 0; i < pecas.length; i++){
+        for(int i = 0; i < pieces.length; i++){
 
             System.out.print((8 - i) + " ");
 
-            for(int j = 0; j < pecas.length; j++){
+            for(int j = 0; j < pieces.length; j++){
 
-                mostrarPeca(pecas[i][j], false);
+                printPiece(pieces[i][j], false);
 
             }
 
@@ -72,15 +72,15 @@ public class UI {
 
     }
 
-    public static void mostrarTabuleiro(PecasXadrez[][] pecas, boolean[][] movimentosPossiveis){
+    public static void printBoard(ChessPiece[][] pieces, boolean[][] possibleMoves){
 
-        for(int i = 0; i < pecas.length; i++){
+        for(int i = 0; i < pieces.length; i++){
 
             System.out.print((8 - i) + " ");
 
-            for(int j = 0; j < pecas.length; j++){
+            for(int j = 0; j < pieces.length; j++){
 
-                mostrarPeca(pecas[i][j], movimentosPossiveis[i][j]);
+                printPiece(pieces[i][j], possibleMoves[i][j]);
 
             }
 
@@ -92,7 +92,7 @@ public class UI {
 
     }
 
-    private static void mostrarPeca(PecasXadrez peca, boolean background){
+    private static void printPiece(ChessPiece piece, boolean background){
 
         if(background){
 
@@ -100,20 +100,20 @@ public class UI {
 
         }
 
-        if(peca == null){
+        if(piece == null){
 
             System.out.print("-" + ANSI_RESET);
 
         }else {
 
-            if (peca.getCores() == CoresPecas.BRANCAS) {
+            if (piece.getColor() == Color.WHITE) {
 
-                System.out.print(ANSI_WHITE + peca + ANSI_RESET);
+                System.out.print(ANSI_WHITE + piece + ANSI_RESET);
 
             }
             else {
 
-                System.out.print(ANSI_YELLOW + peca + ANSI_RESET);
+                System.out.print(ANSI_YELLOW + piece + ANSI_RESET);
 
             }
 
