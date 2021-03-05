@@ -14,27 +14,27 @@ public class Program{
     public static void main(String[] args) {
         
         Scanner sc = new Scanner(System.in);
-        ChessMatch partida = new ChessMatch();
+        ChessMatch chessMatch = new ChessMatch();
         
         while(true){
 
             try{
 
                 UI.clearScreen();
-                UI.printBoard(partida.getPieces());
+                UI.printMatch(chessMatch);
                 System.out.println();
                 System.out.println("Origem ");
-                ChessPosition origem = UI.readChessPosition(sc);
+                ChessPosition source = UI.readChessPosition(sc);
 
-                boolean[][] movimentosPossiveis = partida.possibleMoves(origem);
+                boolean[][] movimentosPossiveis = chessMatch.possibleMoves(source);
                 UI.clearScreen();
-                UI.printBoard(partida.getPieces(), movimentosPossiveis);
+                UI.printBoard(chessMatch.getPieces(), movimentosPossiveis);
                    
                 System.out.println();
                 System.out.println("Alvo: ");
                 ChessPosition alvo = UI.readChessPosition(sc);
                    
-                ChessPiece pecaCapturada = partida.performChessMove(origem, alvo);
+                ChessPiece pecaCapturada = chessMatch.performChessMove(source, alvo);
             
             }catch (ChessException e){
 

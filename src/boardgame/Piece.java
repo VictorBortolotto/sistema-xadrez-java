@@ -1,7 +1,5 @@
 package boardgame;
 
-import chess.ChessPosition;
-
 public abstract class Piece {
     
     protected Position position;
@@ -36,7 +34,7 @@ public abstract class Piece {
 
             for (int j = 0; j < mat.length; j++){
 
-                if(mat[i][i]){
+                if(mat[i][j]){
 
                     return true;
 

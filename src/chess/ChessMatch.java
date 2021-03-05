@@ -9,13 +9,29 @@ import boardgame.Board;
 public class ChessMatch {
     
     private Board board;
+    private int turn;
+    private Color currentPlayer;
 
     public ChessMatch(){
 
         board = new Board(8, 8);
-        setupInicial();
+        turn = 1;
+        currentPlayer = Color.WHITE;
+        initialSetup();
 
     }
+
+    public int getTurn(){
+
+        return turn;
+
+    }
+    public Color getCurrentPlayer(){
+
+        return currentPlayer;
+
+    }
+  
 
     public ChessPiece[][] getPieces(){
 
@@ -38,7 +54,7 @@ public class ChessMatch {
     public boolean[][] possibleMoves(ChessPosition sourcePosition){
 
         Position position = sourcePosition.toPosition();
-        validateSoucePosition(position);
+        validateSourcePosition(position);
 
         return board.piece(position).possibleMoves();
 
@@ -48,9 +64,10 @@ public class ChessMatch {
 
         Position source = sourcePosition.toPosition();
         Position target = targetPosition.toPosition();
-        validateSoucePosition(source);
+        validateSourcePosition(source);
         validateTargetPosition(source, target);
         Piece capturedPiece = makeMove(source, target);
+        nextTurn();
         return (ChessPiece) capturedPiece;
 
 
@@ -66,7 +83,7 @@ public class ChessMatch {
 
     }
 
-    private void validateSoucePosition(Position position){
+    private void validateSourcePosition(Position position){
 
         if(!board.thereIsAPiece(position)){
 
@@ -74,9 +91,14 @@ public class ChessMatch {
 
         }
 
+        if(currentPlayer != ((ChessPiece) board.piece(position)).getColor()){
+
+            throw new ChessException("A peça escolhida não é sua!");
+
+        }
+
         if(!board.piece(position).isThereAnyPossibleMove()){
 
-            System.out.println(!board.piece(position).isThereAnyPossibleMove());
             throw new ChessException("Não há movimentos para peça selecionada");
 
         }
@@ -99,16 +121,23 @@ public class ChessMatch {
 
     }
 
-    private void setupInicial(){
+    private void nextTurn(){
 
-        placeNewPiece('c', 2, new King(board, Color.WHITE));
+        turn++;
+        currentPlayer = (currentPlayer == Color.WHITE) ? Color.BLACK : Color.WHITE;
+
+    }
+
+    private void initialSetup(){
+
+       placeNewPiece('c', 2, new King(board, Color.WHITE));
        placeNewPiece('c', 1, new Tower(board, Color.WHITE));
        placeNewPiece('d', 2, new Tower(board, Color.WHITE));
        placeNewPiece('e', 2, new Tower(board, Color.WHITE));
        placeNewPiece('e', 1, new Tower(board, Color.WHITE));
        placeNewPiece('d', 1, new Tower(board, Color.WHITE));
 
-        placeNewPiece('c', 7, new King(board, Color.BLACK));
+       placeNewPiece('c', 7, new King(board, Color.BLACK));
        placeNewPiece('c', 8, new Tower(board, Color.BLACK));
        placeNewPiece('d', 7, new Tower(board, Color.BLACK));
        placeNewPiece('e', 7, new Tower(board, Color.BLACK));
