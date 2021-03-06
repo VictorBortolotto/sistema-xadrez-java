@@ -43,6 +43,14 @@ public class Program{
                     capturedPieces.add(pecaCapturada);
 
                 }
+
+                if (chessMatch.getPromoted() != null){
+
+                    System.out.println("Digite a nova peça: Q (Rainha), C (Cavalo), B (Bispo), T (Torre)");
+                    String type = sc.nextLine();
+                    chessMatch.replacePromotedPiece(type);
+
+                }
             
            }catch (ChessException e){
 
