@@ -8,8 +8,6 @@ import chess.chessPieces.Knight;
 import chess.chessPieces.Pawn;
 import chess.chessPieces.Queen;
 import chess.chessPieces.Tower;
-
-import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -165,7 +163,7 @@ public class ChessMatch {
         }
         if(!type.equals("B") && !type.equals("C") && !type.equals("T") & !type.equals("Q")){
 
-            throw new InvalidParameterException("Tipo inválido para promoção, use T (Torre), B (Bispo), C (Cavalo), Q (Rainha) ");
+            return promoted;
 
         }
 
