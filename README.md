@@ -29,9 +29,9 @@ cd sistema-xadrez/bin
 
 $ java aplication/Program
 
-# Para mover as peças basta brancas digitar letra e número (Exemplo: a2) da peça que deseja mover, após isso digitar a posição para qual deseja que a peça vá (Exemplo: a4).  
+# Para mover as peças brancas basta digitar letra e número (Exemplo: a2) da peça que deseja mover, após isso digitar a posição para qual deseja que a peça vá (Exemplo: a4).  
 
-# Para mover as peças basta pretas digitar letra e número (Exemplo: a7) da peça que deseja mover, após isso digitar a posição para qual deseja que a peça vá (Exemplo: a5).  
+# Para mover as peças pretas basta  digitar letra e número (Exemplo: a7) da peça que deseja mover, após isso digitar a posição para qual deseja que a peça vá (Exemplo: a5).  
 
 ```
 ### Autores
