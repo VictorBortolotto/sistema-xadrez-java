@@ -2,7 +2,7 @@
 
 ## Aplicação desenvolvida com Java, com objetivo de praticar e estudar a tecnologia
 
-[![GitHub license](https://img.shields.io/https://github.com/VictorBortolotto/sistema-xadrez-java)](https://github.com/VictorBortolotto/sistema-xadrez-java/blob/master/LICENSE)
+[![GitHub license](https://img.shields.io/https://github.com/license/VictorBortolotto/sistema-xadrez-java)](https://github.com/VictorBortolotto/sistema-xadrez-java/blob/master/LICENSE)
 
 <p align="center">
  <a href="#Projeto">Projeto</a> •
