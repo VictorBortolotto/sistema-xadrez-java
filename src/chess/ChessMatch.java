@@ -4,6 +4,7 @@ import boardgame.Piece;
 import boardgame.Position;
 import chess.chessPieces.Bishop;
 import chess.chessPieces.King;
+import chess.chessPieces.Knight;
 import chess.chessPieces.Pawn;
 import chess.chessPieces.Tower;
 
@@ -285,6 +286,8 @@ public class ChessMatch {
     private void initialSetup(){
 
         placeNewPiece('e', 1, new King(board, Color.WHITE));
+        placeNewPiece('b', 1, new Knight(board, Color.WHITE));
+        placeNewPiece('g', 1, new Knight(board, Color.WHITE));
         placeNewPiece('c', 1, new Bishop(board, Color.WHITE));
         placeNewPiece('f', 1, new Bishop(board, Color.WHITE));
         placeNewPiece('a', 1, new Tower(board, Color.WHITE));        
@@ -299,6 +302,8 @@ public class ChessMatch {
         placeNewPiece('h', 2, new Pawn(board, Color.WHITE));
 
         placeNewPiece('e', 8, new King(board, Color.BLACK));
+        placeNewPiece('b', 8, new Knight(board, Color.BLACK));
+        placeNewPiece('g', 8, new Knight(board, Color.BLACK));
         placeNewPiece('c', 8, new Bishop(board, Color.BLACK));
         placeNewPiece('f', 8, new Bishop(board, Color.BLACK));
         placeNewPiece('a', 8, new Tower(board, Color.BLACK));
