@@ -7,7 +7,7 @@
 <p align="center">
  <a href="#Projeto">Projeto</a> •
  <a href="#Tecnologias">Tecnologias</a> •
- <a href="#-rodando-o-front-end-aplicação">Rodando Aplicação</a> • 
+ <a href="#rodando-aplicação">Rodando Aplicação</a> • 
  <a href="#Autores">Autor</a>
 </p>
 
